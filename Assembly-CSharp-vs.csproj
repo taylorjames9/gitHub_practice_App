@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{A44694E5-BD17-2352-1D46-BD17B9AAAC8D}</ProjectGuid>
+	<ProjectGuid>{D9B83ECE-F0C5-8783-8610-CEC2BF7B2B97}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -50,6 +50,7 @@
      <Compile Include="Assets\LineRender_Script.cs" />
      <Compile Include="Assets\LineRenderer_2_script.cs" />
      <Compile Include="Assets\SceneManager.cs" />
+     <Compile Include="Assets\TriggerLineFinish.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
