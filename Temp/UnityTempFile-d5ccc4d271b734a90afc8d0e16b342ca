@@ -46,6 +46,7 @@
 'Assets/Example_LineRenderer.cs'
 'Assets/LineRender_Script.cs'
 'Assets/LineRenderer_2_script.cs'
+'Assets/QuestionScript.cs'
 'Assets/SceneManager.cs'
 'Assets/TriggerLineFinish.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Runtime.Serialization.dll'

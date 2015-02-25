@@ -43,6 +43,7 @@
 -define:UNITY_EDITOR_OSX
 -define:UNITY_TEAM_LICENSE
 -define:UNITY_PRO_LICENSE
+'Assets/CorrectButton_Script.cs'
 'Assets/Example_LineRenderer.cs'
 'Assets/LineRender_Script.cs'
 'Assets/LineRenderer_2_script.cs'

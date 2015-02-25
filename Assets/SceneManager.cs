@@ -23,14 +23,23 @@ public class SceneManager : MonoBehaviour {
 
 	void OnEnable()
 	{
-		Debug.Log ("allLinesInGame = "+allLinesInGame.Count);
-		TriggerLineFinish.OnLineFinish += NextLineSeg;
+		//Debug.Log ("allLinesInGame = "+allLinesInGame.Count);
+		//TriggerLineFinish.OnLineFinish += NextLineSeg;
 	}
 	
 	
 	void OnDisable()
 	{
-		TriggerLineFinish.OnLineFinish -= NextLineSeg;
+		//TriggerLineFinish.OnLineFinish -= NextLineSeg;
+	}
+
+	void pauseMasterSequence(){
+		GetComponent<Animator>().speed = 0;
+	}
+
+	void resumeMasterSequence(){
+		GetComponent<Animator>().speed = 1;
+
 	}
 
 	void NextLineSeg()
@@ -45,12 +54,17 @@ public class SceneManager : MonoBehaviour {
 	}
 
 	void NextQuestion(){
+
+		//pause TimeLine
+		pauseMasterSequence();
 		Debug.Log (" question box should appear ");
 		GameObject myQWhole = GameObject.Instantiate(qPrefab) as GameObject;
-		//myQWhole.transform.parent = GameObject.Find("Canvas").transform;
 		myQWhole.transform.SetParent(GameObject.Find("Canvas").transform);
 		myQWhole.GetComponent<RectTransform>().localPosition = new Vector3(-100,-100,0);
 		Debug.Log ("myLocalPosition = "+myQWhole.GetComponent<RectTransform>().localPosition);
+		//myQWhole.transform.FindChild("AnswerB_Button").gameObject.AddComponent<CorrectButton_Script>();
+		//GameObject.Find ("AnswerB_Button").AddComponent<CorrectButton_Script>();
+		//Button.Find ("AnswerB_Button").onClick
 
 	}
 
