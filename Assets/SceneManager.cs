@@ -33,16 +33,19 @@ public class SceneManager : MonoBehaviour {
 		//TriggerLineFinish.OnLineFinish -= NextLineSeg;
 	}
 
-	void pauseMasterSequence(){
+	public void pauseMasterSequence(){
 		GetComponent<Animator>().speed = 0;
 	}
 
-	void resumeMasterSequence(){
+	public void resumeMasterSequence(){
 		GetComponent<Animator>().speed = 1;
+		GameObject.Find(allQuestionsInGame[currQuestionsInGame].name).SetActive (false);
+
+		incrementCurrQuestion();
 
 	}
 
-	void NextLineSeg()
+	public void NextLineSeg()
 	{
 
 		//switch to new line Segment
@@ -53,22 +56,39 @@ public class SceneManager : MonoBehaviour {
 		}
 	}
 
-	void NextQuestion(){
+	public void NextQuestion(){
 
-		//pause TimeLine
+		pauseMasterSequence();
+
+		if(currQuestionsInGame < allQuestionsInGame.Count){
+			allQuestionsInGame[currQuestionsInGame].SetActive(true);
+		}
+
+		//currQuestionsInGame++;
+
+		/**This segment of script works for making dynamic buttons
+		 * 
 		pauseMasterSequence();
 		Debug.Log (" question box should appear ");
 		GameObject myQWhole = GameObject.Instantiate(qPrefab) as GameObject;
 		myQWhole.transform.SetParent(GameObject.Find("Canvas").transform);
 		myQWhole.GetComponent<RectTransform>().localPosition = new Vector3(-100,-100,0);
 		Debug.Log ("myLocalPosition = "+myQWhole.GetComponent<RectTransform>().localPosition);
+		**/
+
+
+
 		//myQWhole.transform.FindChild("AnswerB_Button").gameObject.AddComponent<CorrectButton_Script>();
 		//GameObject.Find ("AnswerB_Button").AddComponent<CorrectButton_Script>();
 		//Button.Find ("AnswerB_Button").onClick
+		//var bt = myQWhole.transform.FindChild("AnswerB_Button").GetComponent<Button>();
+
+		//	.onClick.AddListener(() => {resumeMasterSequence();}); 
+
 
 	}
 
-	void NextDot(){
+	public void NextDot(){
 
 		//switch on new Question
 		currDotsInGame++;
@@ -76,6 +96,9 @@ public class SceneManager : MonoBehaviour {
 		if(currDotsInGame < allDotsInGame.Count){
 			allDotsInGame[currDotsInGame].SetActive(true);
 		}
-
 	}
+	public void incrementCurrQuestion(){
+		currQuestionsInGame++;
+	}
+
 }
